@@ -29,7 +29,7 @@ employees = [
 
 
 
-# @login_required
+@login_required
 
 def home(request):
     context = {
@@ -63,7 +63,7 @@ def update_profile(request):
 context = {
     'page_title' : 'Employee Information System',
 }
-# @login_required
+@login_required
 def update_password(request):
     context['page_title'] = "Update Password"
     if request.method == 'POST':
@@ -81,7 +81,7 @@ def update_password(request):
     return render(request,'account/update_password.html',context)
 
 
-# @login_required
+@login_required
 def profile(request):
     context['page_title'] = 'Profile'
     return render(request, 'account/profile.html',context)
@@ -110,7 +110,7 @@ def logoutuser(request):
     logout(request)
     return redirect('/')
 
-# @login_required
+@login_required
 def about(request):
     context = {
         'page_title':'About',
@@ -126,7 +126,7 @@ def departments(request):
     return render(request, 'Departments/departments.html',context)
 
 
-# @login_required
+@login_required
 def manage_departments(request):
     department = {}
     if request.method == 'GET':
@@ -142,7 +142,7 @@ def manage_departments(request):
     }
     return render(request, 'Departments/manage_department.html',context)
 
-# @login_required
+@login_required
 def save_department(request):
     data =  request.POST
     resp = {'status':'failed'}
@@ -157,7 +157,7 @@ def save_department(request):
         resp['status'] = 'failed'
     return HttpResponse(json.dumps(resp), content_type="application/json")
 
-# @login_required
+@login_required
 def delete_department(request):
     data =  request.POST 
     resp = {'status':''}
@@ -169,7 +169,7 @@ def delete_department(request):
     return HttpResponse(json.dumps(resp), content_type="application/json")
 
 # Positions
-# @login_required
+@login_required
 def positions(request):
     position_list = Position.objects.all()
     context = {
@@ -177,7 +177,7 @@ def positions(request):
         'positions':position_list,
     }
     return render(request, 'position/positions.html',context)
-# @login_required
+@login_required
 def manage_positions(request):
     position = {}
     if request.method == 'GET':
@@ -193,7 +193,7 @@ def manage_positions(request):
     }
     return render(request, 'position/manage_position.html',context)
 
-# @login_required
+@login_required
 def save_position(request):
     data =  request.POST
     resp = {'status':'failed'}
@@ -219,7 +219,7 @@ def delete_position(request):
         resp['status'] = 'failed'
     return HttpResponse(json.dumps(resp), content_type="application/json")
 
-# @login_required
+@login_required
 # Employees
 def employees(request):
     employee_list = Employees.objects.all()
@@ -228,7 +228,7 @@ def employees(request):
         'employees':employee_list,
     }
     return render(request, 'Employees/employees.html',context)
-# @login_required
+@login_required
 def manage_employees(request):
     employee = {}
     departments = Department.objects.filter(status = 1).all() 
@@ -247,7 +247,7 @@ def manage_employees(request):
     }
     return render(request, 'Employees/manage_employee.html',context)
 
-# @login_required
+@login_required
 def save_employee(request):
     data =  request.POST
     resp = {'status':'failed'}
@@ -275,7 +275,7 @@ def save_employee(request):
             print(json.dumps({"code":data['code'], "firstname" : data['firstname'],"middlename" : data['middlename'],"lastname" : data['lastname'],"dob" : data['dob'],"gender" : data['gender'],"contact" : data['contact'],"email" : data['email'],"address" : data['address'],"department_id" : data['department_id'],"position_id" : data['position_id'],"date_hired" : data['date_hired'],"salary" : data['salary'],"status" : data['status']}))
     return HttpResponse(json.dumps(resp), content_type="application/json")
 
-# @login_required
+@login_required
 def delete_employee(request):
     data =  request.POST
     resp = {'status':''}
@@ -286,7 +286,7 @@ def delete_employee(request):
         resp['status'] = 'failed'
     return HttpResponse(json.dumps(resp), content_type="application/json")
 
-# @login_required
+@login_required
 def view_employee(request):
     employee = {}
     departments = Department.objects.filter(status = 1).all() 
