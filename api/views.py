@@ -7,7 +7,6 @@ from app.views import *
 
 # Create your views here.
 @api_view(['GET'])
-@login_required
 def apiOverview(request):
 	api_urls = {
 	"departments-list":'departments-list/',
