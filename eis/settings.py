@@ -90,11 +90,12 @@ WSGI_APPLICATION = 'eis.wsgi.application'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 
-default_dburl = 'sqlite:///' + os.path.join(BASE_DIR, 'db.sqlite3')
-DATABASES = {
-   'default': config('DATABASE_URL', default=default_dburl, cast=dburl),
-}
+default_dburl='sqlite:///'+os.path.join(BASE_DIR,'db.sqlite3')
 
+
+DATABASES = {
+    'default': config('DATABASE_URL',default=default_dburl,cast=dburl)
+}
 
 # DATABASES = {
 #     'default': {
@@ -152,3 +153,16 @@ MEDIA_ROOT = BASE_DIR / "media/"
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_REDIRECT_URL = '/'
 LOGIN_URL = '/login'
+
+
+REST_FRAMEWORK = {
+    # Use Django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users.
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated'
+    ],
+    #  'DEFAULT_AUTHENTICATION_CLASSES': [
+    #     'rest_framework.authentication.TokenAuthentication'
+    # ]
+    
+}
