@@ -11,7 +11,9 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
-
+from dj_database_url import parse as dburl
+from decouple import  config
+import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -20,13 +22,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-_l55d967w^6(i663oneu30ptz-co&$$_xs3xp!h&r4zpy-525w'
-
+# SECRET_KEY = 'django-insecure-_l55d967w^6(i663oneu30ptz-co&$$_xs3xp!h&r4zpy-525w'
+SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config('DEBUG')
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ['127.0.0.1','.localhost', 'shehab-shaat.herokuapp.com']
 
 # Application definition
 
@@ -39,7 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'app',
     'django.contrib.humanize',
-    'rest_framework'
+    'rest_framework',
+    'corsheaders',
     
 ]
 
@@ -48,10 +50,20 @@ MIDDLEWARE = [
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+
+CORS_ALLOWED_ORIGINS = [
+        "https://example.com",
+        "https://sub.example.com",
+        "http://localhost:8080",
+        "http://127.0.0.1:9000"
+    ]
 
 ROOT_URLCONF = 'eis.urls'
 
@@ -77,12 +89,19 @@ WSGI_APPLICATION = 'eis.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
+
+default_dburl = 'sqlite:///' + os.path.join(BASE_DIR, 'db.sqlite3')
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+   'default': config('DATABASE_URL', default=default_dburl, cast=dburl),
 }
+
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 
 
 # Password validation
@@ -119,9 +138,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 STATIC_URL = 'static/'
-STATICFILES_DIRS = [ 
-    BASE_DIR / "static",
-    ]
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'statics')
 #MEDIA
 MEDIA_URL = 'media/'
 MEDIA_ROOT = BASE_DIR / "media/"

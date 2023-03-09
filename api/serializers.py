@@ -17,5 +17,5 @@ class EmployeesSerializer(serializers.ModelSerializer):
   
 class PositionSerializer(serializers.ModelSerializer):
 	class Meta:
-		model = Employees
+		model = Position
 		fields ='__all__'
