@@ -29,7 +29,7 @@ employees = [
 
 
 
-
+@login_required
 
 def home(request):
     context = {
