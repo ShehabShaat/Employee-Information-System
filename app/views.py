@@ -35,7 +35,7 @@ def home(request):
     context = {
         'page_title':'Home',
         'employees':employees,
-        'total_department':len(Department.objects.all()),
+        # 'total_department':len(Department.objects.all()),
         'total_position':len(Position.objects.all()),
         'total_employee':len(Employees.objects.all()),
     }
