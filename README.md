@@ -113,4 +113,4 @@ This will start the development server, and you can access the application by vi
 ## Credits
 
 This project was developed by [Shehab Shaat](https://github.com/ShehabShaat/) as part of Django-back-end.
-### Special thanks to [Assem Saleh](https://www.linkedin.com/in/asem-k-saleh/) بor his great efforts in providing this instructable
+### Special thanks to [Asem Saleh](https://www.linkedin.com/in/asem-k-saleh/) for his great efforts in providing this instructable
