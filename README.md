@@ -29,6 +29,8 @@ cd Employee_Information-System
 
 ```
 pip install -r requirements.txt
+python manage.py makemigrations
+python manage.py migrate
 py manage.py runserver 8000
 ```
 
