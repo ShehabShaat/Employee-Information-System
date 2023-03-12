@@ -8,21 +8,7 @@ This is a web-based application built with Django that allows users to manage em
 
 ## Installation
 
-To use this project, you will need to have Python and Django installed on your computer. You can download Python from the official website (https://www.python.org/downloads/) and install Django using the following command:
-
-
-
-## Usage
-
-To start the server, navigate to the project directory and run the following command:
-
-
-
-
-
-
-
-
+To use this project, you will need to have Python and Django installed on your computer.  
 
 ```
 python -m pip install --user virtualenv
@@ -32,14 +18,14 @@ venv\Script\activate
 
 To run this project on your pc fllow the below step:
 
-### Step 1 (command line):
+### Step 1 :
 
 ```
 git clone git@github.com:ShehabShaat/Employee_Information-System.git
 cd Employee_Information-System
 ```
 
-### Step 2 (command line):
+### Step 2 :
 
 ```
 pip install -r requirements.txt
@@ -51,7 +37,6 @@ py manage.py runserver 8000
 This will start the development server, and you can access the application by visiting `http://localhost:8000/` in your web browser.
 
 
- [shaatshehab@gmail.com](mailto:shaatshehab@gmail.com) 
 
 
 
@@ -127,4 +112,4 @@ This will start the development server, and you can access the application by vi
 ### There is no direct relationship between the department and position tables. However, both tables have a many-to-one relationship with the employees table through their foreign keys. This means that an Employee belongs to one Department and one Position, which are connected through the Employees table.
 ## Credits
 
-This project was developed by [Shehab Shaat](https://github.com/ShehabShaat/) as part of [Django/Employee-Information-System]. Special thanks to [Instructor Name] for their guidance and support.
+This project was developed by [Shehab Shaat](https://github.com/ShehabShaat/) as part of [Django-back-end/Employee-Information-System]. Special thanks to [Assem Saleh] for their guidance and support.
