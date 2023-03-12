@@ -1,7 +1,7 @@
 
 
-# Online Library Management System
 
+# Employee_Information-System
 
 
 - Coded by [Shehab Shaat](https://ShehabShaat.github.io/)
@@ -39,7 +39,6 @@ py manage.py runserver 8000
 
 
 
-# Employee_Information-System
 ## Database ERD
                    +-----------------------+
                    |     Department        |
