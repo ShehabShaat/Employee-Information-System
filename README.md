@@ -1,7 +1,7 @@
 
 
 
-# Employee_Information-System
+# Employee-Information-System
 
 
 - Coded by [Shehab Shaat](https://ShehabShaat.github.io/)
