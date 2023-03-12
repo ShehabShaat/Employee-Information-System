@@ -1,3 +1,44 @@
+
+
+# Online Library Management System
+
+
+
+- Coded by [Shehab Shaat](https://ShehabShaat.github.io/)
+
+
+```
+python -m pip install --user virtualenv
+python -m virtualenv venv 
+venv\Script\activate
+```
+
+To run this project on your pc fllow the below step:
+
+### Step 1 (command line):
+
+```
+git clone git@github.com:ShehabShaat/Employee_Information-System.git
+cd Employee_Information-System
+```
+
+### Step 2 (command line):
+
+```
+pip install -r requirements.txt
+py manage.py runserver 8000
+```
+
+### Step 3:
+
+- `http://127.0.0.1:8000`
+
+
+ [shaatshehab@gmail.com](mailto:shaatshehab@gmail.com) 
+
+
+
+
 # Employee_Information-System
 ## Database ERD
                    +-----------------------+
