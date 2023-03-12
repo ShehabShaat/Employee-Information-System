@@ -1,10 +1,27 @@
 
 
 
+
 # Employee-Information-System
 
+This is a web-based application built with Django that allows users to manage employee information. Users can perform various CRUD (Create, Read, Update, Delete) operations on employee records, such as adding new employees, viewing employee information, updating employee information, and deleting employee records.
 
-- Coded by [Shehab Shaat](https://ShehabShaat.github.io/)
+## Installation
+
+To use this project, you will need to have Python and Django installed on your computer. You can download Python from the official website (https://www.python.org/downloads/) and install Django using the following command:
+
+
+
+## Usage
+
+To start the server, navigate to the project directory and run the following command:
+
+
+
+
+
+
+
 
 
 ```
@@ -31,7 +48,7 @@ py manage.py runserver 8000
 
 ### Step 3:
 
-- `http://127.0.0.1:8000`
+This will start the development server, and you can access the application by visiting `http://localhost:8000/` in your web browser.
 
 
  [shaatshehab@gmail.com](mailto:shaatshehab@gmail.com) 
@@ -108,3 +125,6 @@ py manage.py runserver 8000
 ### One position can have multiple employees, but each employee can only have one position. This is also a one-to-many relationship, and is represented by the position_id foreign key in the Employees table.
 
 ### There is no direct relationship between the department and position tables. However, both tables have a many-to-one relationship with the employees table through their foreign keys. This means that an Employee belongs to one Department and one Position, which are connected through the Employees table.
+## Credits
+
+This project was developed by [Shehab Shaat](https://github.com/ShehabShaat/) as part of [Django/Employee-Information-System]. Special thanks to [Instructor Name] for their guidance and support.
