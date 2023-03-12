@@ -62,8 +62,7 @@
                    | date_updated | DateTime |
                    +-----------------------+
 
-
-
+## Explain ERD
 #### One Department can have multiple Employees, but each Employee can only belong to one Department. This is a one-to-many relationship, and is represented by the department_id foreign key in the Employees table.
 
 ### One position can have multiple employees, but each employee can only have one position. This is also a one-to-many relationship, and is represented by the position_id foreign key in the Employees table.
