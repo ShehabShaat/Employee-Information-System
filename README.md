@@ -29,6 +29,8 @@ cd Employee_Information-System
 
 ```
 pip install -r requirements.txt
+python manage.py makemigrations
+python manage.py migrate
 py manage.py runserver 8000
 ```
 
@@ -41,7 +43,7 @@ This will start the development server, and you can access the application by vi
 
 
 
-## Database ERD
+# Database ERD
                    +-----------------------+
                    |     Department        |
                    +-----------------------+
@@ -112,4 +114,5 @@ This will start the development server, and you can access the application by vi
 ### There is no direct relationship between the department and position tables. However, both tables have a many-to-one relationship with the employees table through their foreign keys. This means that an Employee belongs to one Department and one Position, which are connected through the Employees table.
 ## Credits
 
-This project was developed by [Shehab Shaat](https://github.com/ShehabShaat/) as part of [Django-back-end/Employee-Information-System]. Special thanks to [Assem Saleh] for their guidance and support.
+This project was developed by [Shehab Shaat](https://github.com/ShehabShaat/) as part of Django-back-end.
+### Special thanks to [Asem Saleh](https://www.linkedin.com/in/asem-k-saleh/) for his great efforts in providing this instructable
