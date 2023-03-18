@@ -25,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-_l55d967w^6(i663oneu30ptz-co&$$_xs3xp!h&r4zpy-525w'
 # SECURITY WARNING: don't run with debug turned on in production!
 
-# SECRET_KEY = config('SECRET_KEY')
+SECRET_KEY = config('SECRET_KEY')
 # DEBUG = config('DEBUG')
 DEBUG = True
 
@@ -94,12 +94,12 @@ WSGI_APPLICATION = 'eis.wsgi.application'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 
-# default_dburl='sqlite:///'+os.path.join(BASE_DIR,'db.sqlite3')
+default_dburl='sqlite:///'+os.path.join(BASE_DIR,'db.sqlite3')
 
 
-# DATABASES = {
-#     'default': config('DATABASE_URL',default=default_dburl,cast=dburl)
-# }
+DATABASES = {
+    'default': config('DATABASE_URL',default=default_dburl,cast=dburl)
+}
 
 DATABASES = {
     'default': {
