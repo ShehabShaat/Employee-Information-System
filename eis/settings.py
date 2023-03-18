@@ -22,10 +22,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-# SECRET_KEY = 'django-insecure-_l55d967w^6(i663oneu30ptz-co&$$_xs3xp!h&r4zpy-525w'
-SECRET_KEY = config('SECRET_KEY')
+SECRET_KEY = 'django-insecure-_l55d967w^6(i663oneu30ptz-co&$$_xs3xp!h&r4zpy-525w'
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config('DEBUG')
+
+# SECRET_KEY = config('SECRET_KEY')
+# DEBUG = config('DEBUG')
+DEBUG = True
+
+
 
 ALLOWED_HOSTS = ['127.0.0.1','.localhost', 'shehab-shaat.herokuapp.com']
 
@@ -90,19 +94,19 @@ WSGI_APPLICATION = 'eis.wsgi.application'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 
-default_dburl='sqlite:///'+os.path.join(BASE_DIR,'db.sqlite3')
+# default_dburl='sqlite:///'+os.path.join(BASE_DIR,'db.sqlite3')
 
-
-DATABASES = {
-    'default': config('DATABASE_URL',default=default_dburl,cast=dburl)
-}
 
 # DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
+#     'default': config('DATABASE_URL',default=default_dburl,cast=dburl)
 # }
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
 
 
 # Password validation

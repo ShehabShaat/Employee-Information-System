@@ -167,5 +167,4 @@ def employeeUpdate(request, pk):
 def employeeDelete(request, pk):
 	employees = Employees.objects.get(id=pk)
 	employees.delete()
-
 	return Response('Item succsesfully delete!')

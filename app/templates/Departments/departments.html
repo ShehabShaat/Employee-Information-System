@@ -34,7 +34,7 @@
                 <tbody>
                     {% for department in departments %}
                     <tr>
-                        <td class="px-2 py-1 text-center">{{ department.id }}</td>
+                        <td class="px-2 py-1 text-center">{{ forloop.counter  }}</td>
                         <td class="px-2 py-1 text-start">{{ department.name }}</td>
                         <td class="px-2 py-1 text-start">{{ department.description }}</td>
                         <td class="px-2 py-1 text-center">

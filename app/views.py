@@ -34,12 +34,49 @@ employees = [
 def home(request):
     context = {
         'page_title':'Home',
-        'employees':employees,
+        # 'employees':employees,
         'total_department':len(Department.objects.all()),
         'total_position':len(Position.objects.all()),
         'total_employee':len(Employees.objects.all()),
     }
     return render(request, 'home.html',context)
+
+
+context = {
+    'page_title' : 'Employee Information System',
+}
+
+def login_user(request):
+    logout(request)
+    resp = {"status":'failed','msg':''} 
+    # username = ''
+    # password = ''
+    if request.POST:
+        username = request.POST['username']
+        password = request.POST['password']
+        user = authenticate(username=username, password=password)
+        
+        if user is not None:
+            if user.is_active:
+                login(request, user)
+                resp['status']='success'
+                
+            else:
+                resp['msg'] = "Incorrect username or password"
+        else:
+            resp['msg'] = "Incorrect username or password"
+    return HttpResponse(json.dumps(resp),content_type='application/json')
+
+#Logout
+def logoutuser(request):
+    logout(request)
+    return redirect('/')
+
+
+@login_required
+def profile(request):
+    context['page_title'] = 'Profile'
+    return render(request, 'account/profile.html',context)
 
 @login_required
 def update_profile(request):
@@ -48,7 +85,6 @@ def update_profile(request):
     if not request.method == 'POST':
         form = UpdateProfile(instance=user)
         context['form'] = form
-        print(form)
     else:
         form = UpdateProfile(request.POST, instance=user)
         if form.is_valid():
@@ -60,9 +96,6 @@ def update_profile(request):
             
     return render(request, 'account/manage_profile.html',context)
 
-context = {
-    'page_title' : 'Employee Information System',
-}
 @login_required
 def update_password(request):
     context['page_title'] = "Update Password"
@@ -80,35 +113,6 @@ def update_password(request):
         context['form'] = form
     return render(request,'account/update_password.html',context)
 
-
-@login_required
-def profile(request):
-    context['page_title'] = 'Profile'
-    return render(request, 'account/profile.html',context)
-def login_user(request):
-    logout(request)
-    resp = {"status":'failed','msg':''} 
-    username = ''
-    password = ''
-    if request.POST:
-        username = request.POST['username']
-        password = request.POST['password']
-        user = authenticate(username=username, password=password)
-        
-        if user is not None:
-            if user.is_active:
-                login(request, user)
-                resp['status']='success'
-            else:
-                resp['msg'] = "Incorrect username or password"
-        else:
-            resp['msg'] = "Incorrect username or password"
-    return HttpResponse(json.dumps(resp),content_type='application/json')
-
-#Logout
-def logoutuser(request):
-    logout(request)
-    return redirect('/')
 
 @login_required
 def about(request):

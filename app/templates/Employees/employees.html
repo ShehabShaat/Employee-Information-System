@@ -37,7 +37,7 @@
                 <tbody>
                     {% for employee in employees %}
                     <tr>
-                        <td class="px-2 py-1 text-center">{{ employee.id }}</td>
+                        <td class="px-2 py-1 text-center">{{ forloop.counter }}</td>
                         <td class="px-2 py-1 text-start">{{ employee.code }}</td>
                         <td class="px-2 py-1 text-start">{{ employee.firstname }} {{ employee.middlename }} {{ employee.lastname }}</td>
                         <td class="px-2 py-1 text-start">{{ employee.department_id }}</td>
@@ -82,7 +82,7 @@
             _conf("Are you sure to delete this employee?", "delete_employee", [$(this).attr('data-id')])
         })
 
-        
+{% comment %}         
         $('#employee-list').DataTable({
             columnDefs: [{
                 orderable: false,
@@ -94,7 +94,7 @@
             drawCallback: function(settings) {
                 $('table td, table th').addClass('px-2 py-1')
             }
-        })
+        }) {% endcomment %}
     })
 
     function delete_employee($id) {

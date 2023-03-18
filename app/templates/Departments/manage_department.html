@@ -3,7 +3,7 @@
         <input type="hidden" name="id" value="{% if department.pk %}{{department.pk}}{% endif %}">
         <div class="form-group mb-3">
             <label for="name" class="control-label">Department Name</label>
-            <input type="text" name="name" id="name" class="form-control form-control-sm rounded-0" value="{% if department.name %}{{department.name}}{% endif %}" required>
+            <input type="text" name="name" id="name" class="form-control form-control-sm rounded-0" value="{% if department.name %}{% endif %}" required>
         </div>
         <div class="form-group mb-3">
             <label for="description" class="control-label">Description</label>
