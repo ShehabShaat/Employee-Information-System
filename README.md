@@ -37,7 +37,7 @@ py manage.py runserver 8000
 ### Step 3:
 
 This will start the development server, and you can access the application by visiting `http://localhost:8000/` in your web browser.
- [demo](ehab-shaat.herokuapp.com/)
+ [demo](shehab-shaat.herokuapp.com/)
 
 
 
